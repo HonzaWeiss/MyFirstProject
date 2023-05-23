@@ -1,0 +1,50 @@
+from pridani_pojisteneho import User
+
+user_list = [User("Jan", "Weiss", 36, 607123456),User("Pavel", "Weiss", 34, 607234567),User("Tomáš", "Weiss", 28, 608123456)]
+
+print("---------------------")
+print("Evidence pojištěnců:")
+print("---------------------\n")
+print("Vyberte si akci:")
+print("1 - Přidat nového pojištěného")
+print("2 - Vypsat všechny pojištěné")
+print("3 - Vyhledat pojištěného")
+print("4 - Nic nepotřebuji")
+
+while True:
+    volba = int(input("Zadejte volbu: "))
+    if (volba == 1):
+        print("Zvolili jste přidání nového pojištěnce.")
+        first_name = input("Zadejte jméno: ")
+        last_name = input("Zadejte příjmení: ")
+        age = input("Zadejte věk: ")
+        phone_number = input("Zadejte telefonní číslo: ")
+        novy = User(first_name, last_name, age, phone_number)
+        user_list.append(novy)
+        print("Vytvořen pojištěnec {}".format(novy))
+        print("Pojištěnec přidán do databáze.")
+
+    elif (volba == 2):
+        print("Zvolili jste vypsání všech pojištěných.")
+        for index, user in enumerate(user_list):
+            index += 1
+            print(index, user)
+
+    elif (volba == 3):
+        print("Zvolili jste možnost vyhledat pojištěného.")
+        first_name = input("Zadejte jméno pojištěného: ")
+        last_name = input("Zadejte příjmení pojištěného: ")
+        nalezeno = ""
+        for User in user_list:
+            if (User.first_name == first_name) and (User.last_name == last_name):
+                nalezeno = User
+        if (nalezeno == ""):
+                print("Uživatel nenalezen, není v databázi.")
+        else:
+                print(nalezeno)
+
+    elif (volba == 4):
+        print("Nic nepotřebujete? V tom případě Vám děkuji a přeji hezký den.")
+
+    else:
+        print("Neplatná volba!")
