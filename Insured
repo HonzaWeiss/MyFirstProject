@@ -1,0 +1,19 @@
+class User:
+    """
+    Třída reprezentuje Usera (uživatele)
+    """
+
+    def __init__(self, first_name, last_name, age, phone_number):
+        """
+        V metodě __init__ máme jako první parametr self a dále parametry, které potřebujeme pro naši aplikaci
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.phone_number = phone_number
+
+    def __str__(self):
+        """
+        V metodě __str__ definujeme, jak se nám bude do konzole vypisovat objekt
+        """
+        return self.first_name + " " + self.last_name + " " + str(self.age) + " " + str(self.phone_number)
